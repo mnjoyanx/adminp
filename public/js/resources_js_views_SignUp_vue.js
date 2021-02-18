@@ -1894,8 +1894,12 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     submitForm: function submitForm() {
+      var _this = this;
+
       axios__WEBPACK_IMPORTED_MODULE_0___default().post('api/register', this.formGroup).then(function (res) {
-        console.log(res);
+        Object.keys(_this.formGroup).map(function (item) {
+          return _this.formGroup[item] = '';
+        });
       })["catch"](function (err) {
         console.log(err);
       });

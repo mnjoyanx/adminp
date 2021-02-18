@@ -1,6 +1,12 @@
 <?php
 
+use App\Http\Controllers\Api\AboutController;
+use App\Http\Controllers\Api\ClientController;
+use App\Http\Controllers\Api\InfoController;
+use App\Http\Controllers\Api\ProjectController;
 use App\Http\Controllers\Api\RegistrationController;
+use App\Http\Controllers\Api\ServiceController;
+use App\Models\Service;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -19,4 +25,11 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
+
+Route::post('/login', [RegistrationController::class, 'login']);
 Route::resource('/register', RegistrationController::class);
+Route::resource('/services', ServiceController::class);
+Route::resource('/about', AboutController::class);
+Route::resource('/info', InfoController::class);
+Route::resource('/projects', ProjectController::class);
+Route::resource('/clients', ClientController::class);

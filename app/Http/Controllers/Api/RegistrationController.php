@@ -3,8 +3,16 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\Client;
+use App\Models\About;
+use App\Models\Info;
+use App\Models\Projects;
 use App\Models\User;
+use App\Models\Service;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Validator;
 
 class RegistrationController extends Controller
 {
@@ -15,7 +23,7 @@ class RegistrationController extends Controller
      */
     public function index()
     {
-        //
+        return ['services' => Service::all()->count(), 'about' => About::all()->count(), 'info' => Info::all()->count(), 'projects' => Projects::all()->count(), 'clients' => Client::all()->count()];
     }
 
     /**
@@ -48,6 +56,31 @@ class RegistrationController extends Controller
             'password' => bcrypt($request->password),
         ]);
     }
+
+    public function login(Request $request)
+    {
+        $v = Validator::make($request->all(),
+            [
+                'email' => 'required|email',
+                'password' => 'required|min:6'
+            ]
+            );
+
+            if ($v->fails())
+        {
+            return response()->json([
+                'status' => 'error',
+                'errors' => $v->errors()
+            ], 422);
+        }
+
+        if (!Auth::attempt($request->only('email', 'password'))) {
+            return response()->json(['status' => 'error', 'errors' => 'something goes wrong'], 422);
+
+        }
+
+        return response()->json(['status' => 'success', 'message' => 'you are loged in'], 200);
+}
 
     /**
      * Display the specified resource.

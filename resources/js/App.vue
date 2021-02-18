@@ -1,12 +1,25 @@
 <template>
-    <div>
-        <router-view></router-view>
+    <div class="header">
+        <side-bar />
+        <div class="container">
+            <hr />
+            <router-view />
+            <hr />
+        </div>
     </div>
 </template>
 
 <script>
-    export default {
-        name: 'App'
-    }
+import SideBar from "./components/SideBar.vue";
+export default {
+    components: { SideBar },
+    name: "App"
+};
 </script>
 
+<style lang="scss">
+@import url('./app.css');
+.header {
+    display: flex;
+}
+</style>

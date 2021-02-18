@@ -50,7 +50,9 @@ export default {
         submitForm() {
             axios.post('api/register', this.formGroup)
                 .then(res => {
-                    console.log(res);
+                    Object.keys(this.formGroup).map(item => {
+                        return this.formGroup[item] = ''
+                    })
                 })
                 .catch(err => {
                     console.log(err);
