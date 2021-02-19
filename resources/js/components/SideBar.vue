@@ -11,10 +11,10 @@
                 <a href="#services" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Services</a>
                 <ul class="collapse list-unstyled" id="services">
                     <li>
-                        <router-link to="/services">All Services</router-link>
+                        <router-link to="/services/list">All Services</router-link>
                     </li>
                     <li>
-                        <router-link to="/add-service">Add New Service</router-link>
+                        <router-link to="/services/add">Add New Service</router-link>
                     </li>
                 </ul>
             </li>
@@ -37,7 +37,7 @@
                         <router-link to='/info'>Info</router-link>
                     </li>
                     <li>
-                        <router-link to="/info">Add Information</router-link>
+                        <router-link :to="{ name: 'info-add' }">Add Information</router-link>
                     </li>
                 </ul>
             </li>

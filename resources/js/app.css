@@ -4,3 +4,7 @@
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
+thead {
+    background-color: #6610f2;
+}

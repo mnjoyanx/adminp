@@ -27,20 +27,17 @@ export default new VueRouter({
         {
             path: '/services',
             component: () => import('../views/services/Index.vue'),
-            name: 'services',
             redirect: {
-                name: 'service-list'
+                path: '/services/list'
             },
             children: [
                 {
                     path: 'list',
                     component: () => import('../views/services/ServiceList.vue'),
-                    name: 'service-list'
                 },
                 {
                     path: 'add',
                     component: () => import('../views/services/ServiceAdd.vue'),
-                    name: 'add'
                 }
             ]
         },

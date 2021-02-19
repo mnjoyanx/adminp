@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Service;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 
 class ServiceController extends Controller
@@ -36,7 +37,28 @@ class ServiceController extends Controller
      */
     public function store(Request $request)
     {
-        return 68345354;
+        $v = Validator::make($request->all(), [
+            'img' => ['required'],
+            'title' => ['required'],
+            'body' => ['required', 'min:10']
+        ]);
+
+        if($v->fails()) {
+            return response()->json([
+                'status' => 'erros',
+                'errors' => $v->errors()
+            ], 422);
+        }
+
+        $service = new Service();
+        $service->img = $request->img;
+        $service->title = $request->title;
+        $service->body = $request->body;
+        $service->save();
+
+        return response()->json(['messages' => 'Service added']);
+
+
     }
 
     /**
@@ -70,7 +92,11 @@ class ServiceController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $service = Service::find($id);
+        $service->img = $request->img;
+        $service->title = $request->title;
+        $service->body = $request->body;
+        $service->save();
     }
 
     /**
@@ -81,6 +107,6 @@ class ServiceController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Service::find($id)->delete();
     }
 }

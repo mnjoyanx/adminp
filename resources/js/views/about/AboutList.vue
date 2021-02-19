@@ -1,7 +1,10 @@
 <template>
   <div>
     <h2>About</h2>
-    <table class="table">
+<div v-if="isLoading">
+<h4>Loading...</h4>
+</div>
+     <table class="table" v-else>
       <thead class="thead-dark">
         <tr>
           <th scope="col"># ID</th>
@@ -52,6 +55,7 @@
         </tr>
       </tbody>
     </table>
+
   </div>
 </template>
 
@@ -63,6 +67,7 @@ export default {
   data() {
     return {
       data: null,
+      isLoading: true
     };
   },
   methods: {
@@ -72,8 +77,10 @@ export default {
         .then((res) => {
           console.log(res);
           this.data = res.data;
+          this.isLoading = false
         })
         .catch((err) => {
+            this.isLoading = false
           console.log(err);
         });
     },

@@ -195,22 +195,19 @@ vue__WEBPACK_IMPORTED_MODULE_0__.default.use(vue_router__WEBPACK_IMPORTED_MODULE
     component: function component() {
       return __webpack_require__.e(/*! import() */ "resources_js_views_services_Index_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../views/services/Index.vue */ "./resources/js/views/services/Index.vue"));
     },
-    name: 'services',
     redirect: {
-      name: 'service-list'
+      path: '/services/list'
     },
     children: [{
       path: 'list',
       component: function component() {
         return __webpack_require__.e(/*! import() */ "resources_js_views_services_ServiceList_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../views/services/ServiceList.vue */ "./resources/js/views/services/ServiceList.vue"));
-      },
-      name: 'service-list'
+      }
     }, {
       path: 'add',
       component: function component() {
         return __webpack_require__.e(/*! import() */ "resources_js_views_services_ServiceAdd_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../views/services/ServiceAdd.vue */ "./resources/js/views/services/ServiceAdd.vue"));
-      },
-      name: 'add'
+      }
     }]
   }, {
     path: '/clients',
@@ -4825,7 +4822,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".ellipsis {\n    white-space: nowrap;\n    width: 150px;\n    overflow: hidden;\n    text-overflow: ellipsis;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".ellipsis {\n    white-space: nowrap;\n    width: 150px;\n    overflow: hidden;\n    text-overflow: ellipsis;\n}\n\nthead {\n    background-color: #6610f2;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -19084,7 +19081,7 @@ var render = function() {
             _c(
               "li",
               [
-                _c("router-link", { attrs: { to: "/services" } }, [
+                _c("router-link", { attrs: { to: "/services/list" } }, [
                   _vm._v("All Services")
                 ])
               ],
@@ -19094,7 +19091,7 @@ var render = function() {
             _c(
               "li",
               [
-                _c("router-link", { attrs: { to: "/add-service" } }, [
+                _c("router-link", { attrs: { to: "/services/add" } }, [
                   _vm._v("Add New Service")
                 ])
               ],
@@ -19164,7 +19161,7 @@ var render = function() {
             _c(
               "li",
               [
-                _c("router-link", { attrs: { to: "/info" } }, [
+                _c("router-link", { attrs: { to: { name: "info-add" } } }, [
                   _vm._v("Add Information")
                 ])
               ],
