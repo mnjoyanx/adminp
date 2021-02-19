@@ -28,16 +28,23 @@ export default new VueRouter({
             path: '/services',
             component: () => import('../views/services/Index.vue'),
             redirect: {
-                path: '/services/list'
+                name: 'service-resource'
             },
             children: [
                 {
                     path: 'list',
                     component: () => import('../views/services/ServiceList.vue'),
+                    name: 'service-list'
                 },
                 {
                     path: 'add',
                     component: () => import('../views/services/ServiceAdd.vue'),
+                    name: 'service-add'
+                },
+                {
+                    path: 'edit/:id',
+                    component: () => import('../views/services/ServiceEdit.vue'),
+                    name: 'service-edit'
                 }
             ]
         },
@@ -46,7 +53,7 @@ export default new VueRouter({
             component: () => import('../views/clients/Index.vue'),
             name: 'clients',
             redirect: {
-                name: 'client-list'
+                name: 'client-resource'
             },
             children: [
                 {
@@ -66,7 +73,7 @@ export default new VueRouter({
             component: () => import('../views/info/Index.vue'),
             name: 'info',
             redirect: {
-                name: 'info-list'
+                name: 'info-resource'
             },
             children: [
                 {
@@ -86,7 +93,7 @@ export default new VueRouter({
             component: () => import('../views/about/Index.vue'),
             name: 'about',
             redirect: {
-                name: 'about-list'
+                name: 'about-resource'
             },
             children: [
                 {
@@ -106,7 +113,7 @@ export default new VueRouter({
             component: () => import('../views/projects/Index.vue'),
             name: 'projects',
             redirect: {
-                name: 'project-list'
+                name: 'project-resource'
             },
             children: [
                 {

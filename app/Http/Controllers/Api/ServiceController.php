@@ -69,7 +69,7 @@ class ServiceController extends Controller
      */
     public function show($id)
     {
-        //
+        return Service::find($id);
     }
 
     /**

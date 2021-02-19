@@ -71,7 +71,7 @@ export default {
   methods: {
     getAllInfoData() {
       axios
-        .get("http://localhost:8000/api/info")
+        .get("/api/info")
         .then((res) => {
           this.info = res.data;
         })

@@ -117,6 +117,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'sidebar'
 });
@@ -196,18 +197,26 @@ vue__WEBPACK_IMPORTED_MODULE_0__.default.use(vue_router__WEBPACK_IMPORTED_MODULE
       return __webpack_require__.e(/*! import() */ "resources_js_views_services_Index_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../views/services/Index.vue */ "./resources/js/views/services/Index.vue"));
     },
     redirect: {
-      path: '/services/list'
+      name: 'service-resource'
     },
     children: [{
       path: 'list',
       component: function component() {
         return __webpack_require__.e(/*! import() */ "resources_js_views_services_ServiceList_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../views/services/ServiceList.vue */ "./resources/js/views/services/ServiceList.vue"));
-      }
+      },
+      name: 'service-list'
     }, {
       path: 'add',
       component: function component() {
         return __webpack_require__.e(/*! import() */ "resources_js_views_services_ServiceAdd_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../views/services/ServiceAdd.vue */ "./resources/js/views/services/ServiceAdd.vue"));
-      }
+      },
+      name: 'service-add'
+    }, {
+      path: 'edit/:id',
+      component: function component() {
+        return __webpack_require__.e(/*! import() */ "resources_js_views_services_ServiceEdit_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../views/services/ServiceEdit.vue */ "./resources/js/views/services/ServiceEdit.vue"));
+      },
+      name: 'service-edit'
     }]
   }, {
     path: '/clients',
@@ -216,7 +225,7 @@ vue__WEBPACK_IMPORTED_MODULE_0__.default.use(vue_router__WEBPACK_IMPORTED_MODULE
     },
     name: 'clients',
     redirect: {
-      name: 'client-list'
+      name: 'client-resource'
     },
     children: [{
       path: 'list',
@@ -238,7 +247,7 @@ vue__WEBPACK_IMPORTED_MODULE_0__.default.use(vue_router__WEBPACK_IMPORTED_MODULE
     },
     name: 'info',
     redirect: {
-      name: 'info-list'
+      name: 'info-resource'
     },
     children: [{
       path: 'list',
@@ -260,7 +269,7 @@ vue__WEBPACK_IMPORTED_MODULE_0__.default.use(vue_router__WEBPACK_IMPORTED_MODULE
     },
     name: 'about',
     redirect: {
-      name: 'about-list'
+      name: 'about-resource'
     },
     children: [{
       path: 'list',
@@ -282,7 +291,7 @@ vue__WEBPACK_IMPORTED_MODULE_0__.default.use(vue_router__WEBPACK_IMPORTED_MODULE
     },
     name: 'projects',
     redirect: {
-      name: 'project-list'
+      name: 'project-resource'
     },
     children: [{
       path: 'list',
@@ -19081,7 +19090,7 @@ var render = function() {
             _c(
               "li",
               [
-                _c("router-link", { attrs: { to: "/services/list" } }, [
+                _c("router-link", { attrs: { to: { name: "service-list" } } }, [
                   _vm._v("All Services")
                 ])
               ],
@@ -19091,7 +19100,7 @@ var render = function() {
             _c(
               "li",
               [
-                _c("router-link", { attrs: { to: "/services/add" } }, [
+                _c("router-link", { attrs: { to: { name: "service-add" } } }, [
                   _vm._v("Add New Service")
                 ])
               ],
@@ -19122,14 +19131,22 @@ var render = function() {
             _c(
               "li",
               [
-                _c("router-link", { attrs: { to: "/clients" } }, [
+                _c("router-link", { attrs: { to: { name: "client-list" } } }, [
                   _vm._v("All Clients")
                 ])
               ],
               1
             ),
             _vm._v(" "),
-            _vm._m(1)
+            _c(
+              "li",
+              [
+                _c("router-link", { attrs: { to: { name: "client-add" } } }, [
+                  _vm._v("Client New Client")
+                ])
+              ],
+              1
+            )
           ]
         )
       ]),
@@ -19154,7 +19171,11 @@ var render = function() {
           [
             _c(
               "li",
-              [_c("router-link", { attrs: { to: "/info" } }, [_vm._v("Info")])],
+              [
+                _c("router-link", { attrs: { to: { name: "info-list" } } }, [
+                  _vm._v("Info")
+                ])
+              ],
               1
             ),
             _vm._v(" "),
@@ -19192,14 +19213,22 @@ var render = function() {
             _c(
               "li",
               [
-                _c("router-link", { attrs: { to: "/projects" } }, [
+                _c("router-link", { attrs: { to: { name: "project-list" } } }, [
                   _vm._v("All Projects")
                 ])
               ],
               1
             ),
             _vm._v(" "),
-            _vm._m(2)
+            _c(
+              "li",
+              [
+                _c("router-link", { attrs: { to: { name: "project-add" } } }, [
+                  _vm._v("Add Project")
+                ])
+              ],
+              1
+            )
           ]
         )
       ]),
@@ -19225,14 +19254,22 @@ var render = function() {
             _c(
               "li",
               [
-                _c("router-link", { attrs: { to: "/about" } }, [
+                _c("router-link", { attrs: { to: { name: "about-list" } } }, [
                   _vm._v("About Us")
                 ])
               ],
               1
             ),
             _vm._v(" "),
-            _vm._m(3)
+            _c(
+              "li",
+              [
+                _c("router-link", { attrs: { to: { name: "about-add" } } }, [
+                  _vm._v("Add")
+                ])
+              ],
+              1
+            )
           ]
         )
       ])
@@ -19247,26 +19284,6 @@ var staticRenderFns = [
     return _c("div", { staticClass: "sidebar-header" }, [
       _c("h3", [_vm._v("Admin Panel")])
     ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", [_c("a", { attrs: { href: "#" } }, [_vm._v("Add Client")])])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", [
-      _c("a", { attrs: { href: "#" } }, [_vm._v("Add Project")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", [_c("a", { attrs: { href: "#" } }, [_vm._v("Add")])])
   }
 ]
 render._withStripped = true
@@ -34610,7 +34627,7 @@ Vue.compile = compileToFunctions;
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames not based on template
-/******/ 			if ({"resources_js_views_SignUp_vue":1,"resources_js_views_SignIn_vue":1,"resources_js_views_AdminPanel_vue":1,"resources_js_views_services_Index_vue":1,"resources_js_views_services_ServiceList_vue":1,"resources_js_views_services_ServiceAdd_vue":1,"resources_js_views_clients_Index_vue":1,"resources_js_views_clients_ClientList_vue":1,"resources_js_views_clients_ClientAdd_vue":1,"resources_js_views_info_Index_vue":1,"resources_js_views_info_InfoList_vue":1,"resources_js_views_info_InfoAdd_vue":1,"resources_js_views_about_Index_vue":1,"resources_js_views_about_AboutList_vue":1,"resources_js_views_about_AboutAdd_vue":1,"resources_js_views_projects_Index_vue":1,"resources_js_views_projects_ProjectList_vue":1,"resources_js_views_projects_ProjectAdd_vue":1}[chunkId]) return "js/" + chunkId + ".js";
+/******/ 			if ({"resources_js_views_SignUp_vue":1,"resources_js_views_SignIn_vue":1,"resources_js_views_AdminPanel_vue":1,"resources_js_views_services_Index_vue":1,"resources_js_views_services_ServiceList_vue":1,"resources_js_views_services_ServiceAdd_vue":1,"resources_js_views_services_ServiceEdit_vue":1,"resources_js_views_clients_Index_vue":1,"resources_js_views_clients_ClientList_vue":1,"resources_js_views_clients_ClientAdd_vue":1,"resources_js_views_info_Index_vue":1,"resources_js_views_info_InfoList_vue":1,"resources_js_views_info_InfoAdd_vue":1,"resources_js_views_about_Index_vue":1,"resources_js_views_about_AboutList_vue":1,"resources_js_views_about_AboutAdd_vue":1,"resources_js_views_projects_Index_vue":1,"resources_js_views_projects_ProjectList_vue":1,"resources_js_views_projects_ProjectAdd_vue":1}[chunkId]) return "js/" + chunkId + ".js";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};

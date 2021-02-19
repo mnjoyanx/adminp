@@ -11,21 +11,22 @@
                 <a href="#services" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Services</a>
                 <ul class="collapse list-unstyled" id="services">
                     <li>
-                        <router-link to="/services/list">All Services</router-link>
+                        <router-link :to="{name: 'service-list'}">All Services</router-link>
                     </li>
                     <li>
-                        <router-link to="/services/add">Add New Service</router-link>
+                        <router-link :to="{name: 'service-add'}">Add New Service</router-link>
                     </li>
+
                 </ul>
             </li>
             <li>
                 <a href="#clients" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Clients</a>
                 <ul class="collapse list-unstyled" id="clients">
                     <li>
-                        <router-link to='/clients'>All Clients</router-link>
+                        <router-link :to="{name: 'client-list'}">All Clients</router-link>
                     </li>
                     <li>
-                        <a href="#">Add Client</a>
+                        <router-link :to="{name: 'client-add'}">Client New Client</router-link>
                     </li>
                 </ul>
             </li>
@@ -34,7 +35,7 @@
                 <a href="#info" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Info</a>
                 <ul class="collapse list-unstyled" id="info">
                     <li>
-                        <router-link to='/info'>Info</router-link>
+                        <router-link :to="{name: 'info-list'}">Info</router-link>
                     </li>
                     <li>
                         <router-link :to="{ name: 'info-add' }">Add Information</router-link>
@@ -46,10 +47,10 @@
                 <a href="#projects" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Projects</a>
                 <ul class="collapse list-unstyled" id="projects">
                     <li>
-                        <router-link to='/projects'>All Projects</router-link>
+                        <router-link :to="{name: 'project-list'}">All Projects</router-link>
                     </li>
                     <li>
-                        <a href="#">Add Project</a>
+                        <router-link :to="{name: 'project-add'}">Add Project</router-link>
                     </li>
                 </ul>
             </li>
@@ -58,10 +59,10 @@
                 <a href="#about" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">About Us</a>
                 <ul class="collapse list-unstyled" id="about">
                     <li>
-                        <router-link to='/about'>About Us</router-link>
+                        <router-link :to="{name: 'about-list'}">About Us</router-link>
                     </li>
                     <li>
-                        <a href="#">Add</a>
+                        <router-link :to="{name: 'about-add'}">Add</router-link>
                     </li>
                 </ul>
             </li>

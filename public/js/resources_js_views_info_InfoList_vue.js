@@ -1919,7 +1919,7 @@ __webpack_require__.r(__webpack_exports__);
     getAllInfoData: function getAllInfoData() {
       var _this = this;
 
-      axios__WEBPACK_IMPORTED_MODULE_0___default().get("http://localhost:8000/api/info").then(function (res) {
+      axios__WEBPACK_IMPORTED_MODULE_0___default().get("/api/info").then(function (res) {
         _this.info = res.data;
       })["catch"](function (err) {
         console.log(err);

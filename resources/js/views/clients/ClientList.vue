@@ -67,7 +67,7 @@ import axios from 'axios'
         },
         methods: {
             getAllClients() {
-                axios.get('http://localhost:8000/api/clients')
+                axios.get('/api/clients')
                     .then(res => {
                         console.log(res)
                         this.clients = res.data

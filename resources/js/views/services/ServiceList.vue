@@ -1,6 +1,5 @@
 <template>
   <div class="main">
-  <div v-if="showModal" class="modalBackground"></div>
     <table class="table">
       <thead>
         <tr>
@@ -43,7 +42,7 @@
               </svg>
             </span>
 
-            <span class="btn btn-primary ml-2" @click="openModal(item)">
+            <span class="btn btn-primary ml-2" @click="editPath(item.id)">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
@@ -65,27 +64,16 @@
         </tr>
       </tbody>
     </table>
-    <div v-if="showModal">
-      <modal
-        :showModal="showModal"
-        @closeModal="closeModal"
-        @updateService="getAllServices"
-        :item="currentService"
-      />
-    </div>
   </div>
 </template>
 
 <script>
 import axios from "axios";
-import Modal from "../../components/Modal.vue";
 export default {
-  components: { Modal },
   name: "services",
   data() {
     return {
       services: [],
-      showModal: false,
       currentItem: null,
     };
   },
@@ -112,15 +100,10 @@ export default {
           console.log();
         });
     },
-
-    openModal(item) {
-      this.showModal = true;
-      this.currentService = item;
-    },
-
-    closeModal() {
-      this.showModal = false;
-    },
+    editPath(id) {
+        console.log(id)
+        this.$router.push({name: 'service-edit', params: {id}})
+    }
   },
   mounted() {
     this.getAllServices();
@@ -134,13 +117,5 @@ export default {
   width: 150px;
   overflow: hidden;
   text-overflow: ellipsis;
-}
-.modalBackground {
-    position: absolute;
-    min-width: 100vw;
-    min-height: 100vh;
-    background: rgba(0, 0, 0, 0.4);
-    left: 0;
-    top: 0;
 }
 </style>

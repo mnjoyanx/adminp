@@ -55,7 +55,6 @@
         </tr>
       </tbody>
     </table>
-
   </div>
 </template>
 
@@ -73,15 +72,13 @@ export default {
   methods: {
     getAllAboutData() {
       axios
-        .get("http://localhost:8000/api/about")
+        .get("/api/about")
         .then((res) => {
-          console.log(res);
           this.data = res.data;
           this.isLoading = false
         })
         .catch((err) => {
             this.isLoading = false
-          console.log(err);
         });
     },
   },

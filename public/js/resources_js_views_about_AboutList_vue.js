@@ -1906,7 +1906,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "info",
@@ -1920,13 +1919,11 @@ __webpack_require__.r(__webpack_exports__);
     getAllAboutData: function getAllAboutData() {
       var _this = this;
 
-      axios__WEBPACK_IMPORTED_MODULE_0___default().get("http://localhost:8000/api/about").then(function (res) {
-        console.log(res);
+      axios__WEBPACK_IMPORTED_MODULE_0___default().get("/api/about").then(function (res) {
         _this.data = res.data;
         _this.isLoading = false;
       })["catch"](function (err) {
         _this.isLoading = false;
-        console.log(err);
       });
     }
   },
