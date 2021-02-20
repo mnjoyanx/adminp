@@ -23,7 +23,7 @@
             <p class="ellipsis">{{ item.body }}</p>
           </td>
           <td class="d-flex">
-            <span @click="removeItem(item.id)" class="btn btn-danger">
+            <span @click="removeItem(item.id)" class="btn btn-outline-danger">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
@@ -42,7 +42,7 @@
               </svg>
             </span>
 
-            <span class="btn btn-primary ml-2" @click="editPath(item.id)">
+            <span class="btn btn-outline-primary ml-2" @click="editPath(item.id)">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"

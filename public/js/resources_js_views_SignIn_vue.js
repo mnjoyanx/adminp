@@ -1892,7 +1892,9 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       axios__WEBPACK_IMPORTED_MODULE_0___default().post('/api/login', this.formGroup).then(function (res) {
-        _this.$router.push('/admin-panel');
+        _this.$router.push({
+          name: 'admin-panel'
+        });
       })["catch"](function (err) {
         console.log(err);
       });

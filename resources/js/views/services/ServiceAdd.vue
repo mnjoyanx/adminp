@@ -30,7 +30,7 @@
             v-model="formControl.body"
           ></textarea>
         </div>
-        <button class="btn btn-primary">Add</button>
+        <button class="btn btn-outline-primary">Add</button>
       </div>
     </form>
   </div>

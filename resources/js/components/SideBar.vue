@@ -26,7 +26,7 @@
                         <router-link :to="{name: 'client-list'}">All Clients</router-link>
                     </li>
                     <li>
-                        <router-link :to="{name: 'client-add'}">Client New Client</router-link>
+                        <router-link :to="{name: 'client-add'}">Add New Client</router-link>
                     </li>
                 </ul>
             </li>

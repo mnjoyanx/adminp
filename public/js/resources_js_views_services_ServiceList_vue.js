@@ -2338,7 +2338,7 @@ var render = function() {
               _c(
                 "span",
                 {
-                  staticClass: "btn btn-danger",
+                  staticClass: "btn btn-outline-danger",
                   on: {
                     click: function($event) {
                       return _vm.removeItem(item.id)
@@ -2381,7 +2381,7 @@ var render = function() {
               _c(
                 "span",
                 {
-                  staticClass: "btn btn-primary ml-2",
+                  staticClass: "btn btn-outline-primary ml-2",
                   on: {
                     click: function($event) {
                       return _vm.editPath(item.id)

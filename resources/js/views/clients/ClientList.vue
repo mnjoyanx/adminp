@@ -16,7 +16,7 @@
                     <p class="ellipsis">{{ item.img }}</p>
                 </th>
                 <td class="d-flex">
-                <span class="btn btn-danger" @click="removeClient(item.id)">
+                <span class="btn btn-outline-danger" @click="removeClient(item.id)">
                 <svg
                             xmlns="http://www.w3.org/2000/svg"
                             width="16"
@@ -35,7 +35,7 @@
                         </svg>
                 </span>
 
-                <span class="btn btn-primary">
+                <span class="btn btn-outline-primary ml-2" @click="editClient(item.id)">
                  <svg
                             xmlns="http://www.w3.org/2000/svg"
                             width="16"
@@ -76,7 +76,6 @@ import axios from 'axios'
             getAllClients() {
                 axios.get('/api/clients')
                     .then(res => {
-                        console.log(res)
                         this.clients = res.data
                     })
                     .catch(err => {
@@ -91,6 +90,9 @@ import axios from 'axios'
                     .catch(err => {
                         console.log(err);
                     })
+            },
+            editClient(id) {
+                this.$router.push({name: 'client-edit', params: {id}})
             }
         },
         mounted() {

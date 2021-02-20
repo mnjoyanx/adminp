@@ -1882,11 +1882,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: 'service-edit',
+  name: "service-edit",
   data: function data() {
     return {
       service: null
@@ -1913,11 +1911,11 @@ __webpack_require__.r(__webpack_exports__);
       console.log(this.service);
       axios__WEBPACK_IMPORTED_MODULE_0___default().put("/api/services/".concat(this.service.id), this.service).then(function (res) {
         Object.keys(_this2.service).map(function (item) {
-          return _this2.service[item] = '';
+          return _this2.service[item] = "";
         });
 
         _this2.$router.push({
-          name: 'service-list'
+          name: "service-list"
         });
       })["catch"](function (err) {
         console.log(err);
@@ -2308,7 +2306,9 @@ var render = function() {
                 })
               ]),
               _vm._v(" "),
-              _c("button", { staticClass: "btn btn-primary" }, [_vm._v("Edit")])
+              _c("button", { staticClass: "btn btn-outline-primary" }, [
+                _vm._v("Edit")
+              ])
             ]
           )
         : _vm._e()

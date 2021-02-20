@@ -1868,18 +1868,20 @@ __webpack_require__.r(__webpack_exports__);
 //
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: 'client-add',
+  name: "client-add",
   data: function data() {
     return {
-      img: ''
+      img: ""
     };
   },
   methods: {
     addClient: function addClient() {
-      axios__WEBPACK_IMPORTED_MODULE_0___default().post('/api/clients', {
+      var _this = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_0___default().post("/api/clients", {
         img: this.img
       }).then(function (res) {
-        console.log(res);
+        _this.img = "";
       })["catch"](function (err) {
         console.log(err);
       });
@@ -2212,7 +2214,9 @@ var render = function() {
             }
           }),
           _vm._v(" "),
-          _c("button", { staticClass: "btn btn-primary mt-3" }, [_vm._v("Add")])
+          _c("button", { staticClass: "btn btn-outline-primary mt-3" }, [
+            _vm._v("Add")
+          ])
         ])
       ]
     )

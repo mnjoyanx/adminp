@@ -1906,7 +1906,6 @@ __webpack_require__.r(__webpack_exports__);
 
     axios__WEBPACK_IMPORTED_MODULE_0___default().get('/api/register').then(function (res) {
       _this.counts = res.data;
-      console.log(res.data);
     });
   }
 });

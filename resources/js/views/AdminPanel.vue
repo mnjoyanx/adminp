@@ -59,7 +59,6 @@ import axios from 'axios'
             axios.get('/api/register')
                 .then(res => {
                     this.counts = res.data
-                    console.log(res.data)
                 })
         }
     }

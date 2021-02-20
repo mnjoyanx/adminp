@@ -197,22 +197,22 @@ vue__WEBPACK_IMPORTED_MODULE_0__.default.use(vue_router__WEBPACK_IMPORTED_MODULE
       return __webpack_require__.e(/*! import() */ "resources_js_views_services_Index_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../views/services/Index.vue */ "./resources/js/views/services/Index.vue"));
     },
     redirect: {
-      name: 'service-resource'
+      name: 'service-list'
     },
     children: [{
-      path: 'list',
+      path: '/services-list',
       component: function component() {
         return __webpack_require__.e(/*! import() */ "resources_js_views_services_ServiceList_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../views/services/ServiceList.vue */ "./resources/js/views/services/ServiceList.vue"));
       },
       name: 'service-list'
     }, {
-      path: 'add',
+      path: '/services-add',
       component: function component() {
         return __webpack_require__.e(/*! import() */ "resources_js_views_services_ServiceAdd_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../views/services/ServiceAdd.vue */ "./resources/js/views/services/ServiceAdd.vue"));
       },
       name: 'service-add'
     }, {
-      path: 'edit/:id',
+      path: '/services-edit/:id',
       component: function component() {
         return __webpack_require__.e(/*! import() */ "resources_js_views_services_ServiceEdit_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../views/services/ServiceEdit.vue */ "./resources/js/views/services/ServiceEdit.vue"));
       },
@@ -225,10 +225,10 @@ vue__WEBPACK_IMPORTED_MODULE_0__.default.use(vue_router__WEBPACK_IMPORTED_MODULE
     },
     name: 'clients',
     redirect: {
-      name: 'client-resource'
+      name: 'client-list'
     },
     children: [{
-      path: 'list',
+      path: '/client-list',
       component: function component() {
         return __webpack_require__.e(/*! import() */ "resources_js_views_clients_ClientList_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../views/clients/ClientList */ "./resources/js/views/clients/ClientList.vue"));
       },
@@ -239,6 +239,12 @@ vue__WEBPACK_IMPORTED_MODULE_0__.default.use(vue_router__WEBPACK_IMPORTED_MODULE
         return __webpack_require__.e(/*! import() */ "resources_js_views_clients_ClientAdd_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../views/clients/ClientAdd */ "./resources/js/views/clients/ClientAdd.vue"));
       },
       name: 'client-add'
+    }, {
+      path: 'client-edit/:id',
+      component: function component() {
+        return __webpack_require__.e(/*! import() */ "resources_js_views_clients_ClientEdit_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../views/clients/ClientEdit */ "./resources/js/views/clients/ClientEdit.vue"));
+      },
+      name: 'client-edit'
     }]
   }, {
     path: '/info',
@@ -247,7 +253,7 @@ vue__WEBPACK_IMPORTED_MODULE_0__.default.use(vue_router__WEBPACK_IMPORTED_MODULE
     },
     name: 'info',
     redirect: {
-      name: 'info-resource'
+      name: 'info-list'
     },
     children: [{
       path: 'list',
@@ -261,6 +267,12 @@ vue__WEBPACK_IMPORTED_MODULE_0__.default.use(vue_router__WEBPACK_IMPORTED_MODULE
         return __webpack_require__.e(/*! import() */ "resources_js_views_info_InfoAdd_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../views/info/InfoAdd */ "./resources/js/views/info/InfoAdd.vue"));
       },
       name: 'info-add'
+    }, {
+      path: 'info-edit/:id',
+      component: function component() {
+        return __webpack_require__.e(/*! import() */ "resources_js_views_info_InfoEdit_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../views/info/InfoEdit */ "./resources/js/views/info/InfoEdit.vue"));
+      },
+      name: 'info-edit'
     }]
   }, {
     path: '/about',
@@ -269,10 +281,10 @@ vue__WEBPACK_IMPORTED_MODULE_0__.default.use(vue_router__WEBPACK_IMPORTED_MODULE
     },
     name: 'about',
     redirect: {
-      name: 'about-resource'
+      name: 'about-list'
     },
     children: [{
-      path: 'list',
+      path: 'about-list',
       component: function component() {
         return __webpack_require__.e(/*! import() */ "resources_js_views_about_AboutList_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../views/about/AboutList */ "./resources/js/views/about/AboutList.vue"));
       },
@@ -283,6 +295,12 @@ vue__WEBPACK_IMPORTED_MODULE_0__.default.use(vue_router__WEBPACK_IMPORTED_MODULE
         return __webpack_require__.e(/*! import() */ "resources_js_views_about_AboutAdd_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../views/about/AboutAdd */ "./resources/js/views/about/AboutAdd.vue"));
       },
       name: 'about-add'
+    }, {
+      path: 'about-edit/:id',
+      component: function component() {
+        return __webpack_require__.e(/*! import() */ "resources_js_views_about_AboutEdit_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../views/about/AboutEdit */ "./resources/js/views/about/AboutEdit.vue"));
+      },
+      name: 'about-edit'
     }]
   }, {
     path: '/projects',
@@ -291,20 +309,26 @@ vue__WEBPACK_IMPORTED_MODULE_0__.default.use(vue_router__WEBPACK_IMPORTED_MODULE
     },
     name: 'projects',
     redirect: {
-      name: 'project-resource'
+      name: 'project-list'
     },
     children: [{
-      path: 'list',
+      path: 'project-list',
       component: function component() {
         return __webpack_require__.e(/*! import() */ "resources_js_views_projects_ProjectList_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../views/projects/ProjectList */ "./resources/js/views/projects/ProjectList.vue"));
       },
       name: 'project-list'
     }, {
-      path: 'add',
+      path: 'project-add',
       component: function component() {
         return __webpack_require__.e(/*! import() */ "resources_js_views_projects_ProjectAdd_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../views/projects/ProjectAdd */ "./resources/js/views/projects/ProjectAdd.vue"));
       },
       name: 'project-add'
+    }, {
+      path: 'project-edit/:id',
+      component: function component() {
+        return __webpack_require__.e(/*! import() */ "resources_js_views_projects_ProjectEdit_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../views/projects/ProjectEdit */ "./resources/js/views/projects/ProjectEdit.vue"));
+      },
+      name: 'project-edit'
     }]
   }]
 }));
@@ -19142,7 +19166,7 @@ var render = function() {
               "li",
               [
                 _c("router-link", { attrs: { to: { name: "client-add" } } }, [
-                  _vm._v("Client New Client")
+                  _vm._v("Add New Client")
                 ])
               ],
               1
@@ -34627,7 +34651,7 @@ Vue.compile = compileToFunctions;
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames not based on template
-/******/ 			if ({"resources_js_views_SignUp_vue":1,"resources_js_views_SignIn_vue":1,"resources_js_views_AdminPanel_vue":1,"resources_js_views_services_Index_vue":1,"resources_js_views_services_ServiceList_vue":1,"resources_js_views_services_ServiceAdd_vue":1,"resources_js_views_services_ServiceEdit_vue":1,"resources_js_views_clients_Index_vue":1,"resources_js_views_clients_ClientList_vue":1,"resources_js_views_clients_ClientAdd_vue":1,"resources_js_views_info_Index_vue":1,"resources_js_views_info_InfoList_vue":1,"resources_js_views_info_InfoAdd_vue":1,"resources_js_views_about_Index_vue":1,"resources_js_views_about_AboutList_vue":1,"resources_js_views_about_AboutAdd_vue":1,"resources_js_views_projects_Index_vue":1,"resources_js_views_projects_ProjectList_vue":1,"resources_js_views_projects_ProjectAdd_vue":1}[chunkId]) return "js/" + chunkId + ".js";
+/******/ 			if ({"resources_js_views_SignUp_vue":1,"resources_js_views_SignIn_vue":1,"resources_js_views_AdminPanel_vue":1,"resources_js_views_services_Index_vue":1,"resources_js_views_services_ServiceList_vue":1,"resources_js_views_services_ServiceAdd_vue":1,"resources_js_views_services_ServiceEdit_vue":1,"resources_js_views_clients_Index_vue":1,"resources_js_views_clients_ClientList_vue":1,"resources_js_views_clients_ClientAdd_vue":1,"resources_js_views_clients_ClientEdit_vue":1,"resources_js_views_info_Index_vue":1,"resources_js_views_info_InfoList_vue":1,"resources_js_views_info_InfoAdd_vue":1,"resources_js_views_info_InfoEdit_vue":1,"resources_js_views_about_Index_vue":1,"resources_js_views_about_AboutList_vue":1,"resources_js_views_about_AboutAdd_vue":1,"resources_js_views_about_AboutEdit_vue":1,"resources_js_views_projects_Index_vue":1,"resources_js_views_projects_ProjectList_vue":1,"resources_js_views_projects_ProjectAdd_vue":1,"resources_js_views_projects_ProjectEdit_vue":1}[chunkId]) return "js/" + chunkId + ".js";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};

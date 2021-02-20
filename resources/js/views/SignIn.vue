@@ -44,7 +44,7 @@ import axios from 'axios'
             submitForm() {
                 axios.post('/api/login', this.formGroup)
                     .then(res => {
-                        this.$router.push('/admin-panel')
+                        this.$router.push({name: 'admin-panel'})
                     })
                     .catch(err => {
                         console.log(err);

@@ -28,21 +28,21 @@ export default new VueRouter({
             path: '/services',
             component: () => import('../views/services/Index.vue'),
             redirect: {
-                name: 'service-resource'
+                name: 'service-list'
             },
             children: [
                 {
-                    path: 'list',
+                    path: '/services-list',
                     component: () => import('../views/services/ServiceList.vue'),
                     name: 'service-list'
                 },
                 {
-                    path: 'add',
+                    path: '/services-add',
                     component: () => import('../views/services/ServiceAdd.vue'),
                     name: 'service-add'
                 },
                 {
-                    path: 'edit/:id',
+                    path: '/services-edit/:id',
                     component: () => import('../views/services/ServiceEdit.vue'),
                     name: 'service-edit'
                 }
@@ -53,11 +53,11 @@ export default new VueRouter({
             component: () => import('../views/clients/Index.vue'),
             name: 'clients',
             redirect: {
-                name: 'client-resource'
+                name: 'client-list'
             },
             children: [
                 {
-                    path: 'list',
+                    path: '/client-list',
                     component: () => import('../views/clients/ClientList'),
                     name: 'client-list'
                 },
@@ -65,6 +65,11 @@ export default new VueRouter({
                     path: 'add',
                     component: () => import('../views/clients/ClientAdd'),
                     name: 'client-add'
+                },
+                {
+                    path: 'client-edit/:id',
+                    component: () => import('../views/clients/ClientEdit'),
+                    name: 'client-edit'
                 }
             ]
         },
@@ -73,7 +78,7 @@ export default new VueRouter({
             component: () => import('../views/info/Index.vue'),
             name: 'info',
             redirect: {
-                name: 'info-resource'
+                name: 'info-list'
             },
             children: [
                 {
@@ -85,6 +90,11 @@ export default new VueRouter({
                     path: 'add',
                     component: () => import('../views/info/InfoAdd'),
                     name: 'info-add'
+                },
+                {
+                    path: 'info-edit/:id',
+                    component: () => import('../views/info/InfoEdit'),
+                    name: 'info-edit'
                 }
             ]
         },
@@ -93,11 +103,11 @@ export default new VueRouter({
             component: () => import('../views/about/Index.vue'),
             name: 'about',
             redirect: {
-                name: 'about-resource'
+                name: 'about-list'
             },
             children: [
                 {
-                    path: 'list',
+                    path: 'about-list',
                     component: () => import('../views/about/AboutList'),
                     name: 'about-list'
                 },
@@ -105,6 +115,11 @@ export default new VueRouter({
                     path: 'add',
                     component: () => import('../views/about/AboutAdd'),
                     name: 'about-add'
+                },
+                {
+                    path: 'about-edit/:id',
+                    component: () => import('../views/about/AboutEdit'),
+                    name: 'about-edit'
                 }
             ]
         },
@@ -113,18 +128,23 @@ export default new VueRouter({
             component: () => import('../views/projects/Index.vue'),
             name: 'projects',
             redirect: {
-                name: 'project-resource'
+                name: 'project-list'
             },
             children: [
                 {
-                    path: 'list',
+                    path: 'project-list',
                     component: () => import('../views/projects/ProjectList'),
                     name: 'project-list'
                 },
                 {
-                    path: 'add',
+                    path: 'project-add',
                     component: () => import('../views/projects/ProjectAdd'),
                     name: 'project-add'
+                },
+                {
+                    path: 'project-edit/:id',
+                    component: () => import('../views/projects/ProjectEdit'),
+                    name: 'project-edit'
                 }
             ]
         }
