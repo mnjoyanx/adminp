@@ -92,6 +92,7 @@ class ServiceController extends Controller
      */
     public function update(Request $request, $id)
     {
+
         $service = Service::find($id);
         $service->img = $request->img;
         $service->title = $request->title;

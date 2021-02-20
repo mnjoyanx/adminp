@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\Client;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class ClientController extends Controller
 {
@@ -36,7 +37,20 @@ class ClientController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $v = Validator::make($request->all(), [
+            'img' => 'required'
+        ]);
+
+        if($v->fails())
+        {
+            return response()->json(['errors' => $v->messages()], 422);
+        }
+
+        $client = new Client();
+        $client->img = $request->img;
+        $client->save();
+
+        return response()->json(['messages' => 'Client added'], 200);
     }
 
     /**
@@ -81,6 +95,12 @@ class ClientController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $client = Client::find($id);
+        if($client)
+        {
+            $client->delete();
+            return response()->json(['messages' => 'client removed']);
+        }
+        return response()->json(['messages' => 'sth goes wrong']);
     }
 }
