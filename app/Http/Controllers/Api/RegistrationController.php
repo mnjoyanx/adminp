@@ -55,6 +55,11 @@ class RegistrationController extends Controller
             'email' => $request->email,
             'password' => bcrypt($request->password),
         ]);
+
+
+        return 'registration store';
+
+
     }
 
     public function login(Request $request)
