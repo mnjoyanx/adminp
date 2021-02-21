@@ -1908,7 +1908,6 @@ __webpack_require__.r(__webpack_exports__);
     editServiceHandler: function editServiceHandler() {
       var _this2 = this;
 
-      console.log(this.service);
       axios__WEBPACK_IMPORTED_MODULE_0___default().put("/api/services/".concat(this.service.id), this.service).then(function (res) {
         Object.keys(_this2.service).map(function (item) {
           return _this2.service[item] = "";

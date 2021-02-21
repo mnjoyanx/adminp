@@ -6,7 +6,7 @@
       </div>
 
       <ul class="list-unstyled components">
-        <p>Dummy Heading</p>
+        <router-link tag="p" :to="{name: 'admin-panel'}">Home</router-link>
         <li class="active">
           <a
             href="#services"
@@ -108,7 +108,13 @@
               <router-link :to="{ name: 'about-add' }">Add</router-link>
             </li>
           </ul>
+          <ul>
+          <li @click="goOut" class="log__out">
+                <p>Log Out</p>
+            </li>
+          </ul>
         </li>
+
       </ul>
     </nav>
     <div id="maincontent">
@@ -126,6 +132,12 @@
 <script>
 export default {
   name: "sidebar",
+  methods: {
+      goOut() {
+          localStorage.removeItem('auth')
+          this.$router.push({name: 'sign-in'})
+      }
+  }
 };
 </script>
 
@@ -216,5 +228,10 @@ a[data-toggle="collapse"] {
 }
 #maincontent {
     flex: 1;
+}
+.log__out {
+    width: 100%;
+    list-style: none;
+    cursor: pointer;
 }
 </style>

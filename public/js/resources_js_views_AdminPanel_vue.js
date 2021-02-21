@@ -1893,9 +1893,21 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: 'admin-panel',
+  name: "admin-panel",
   data: function data() {
     return {
       counts: null
@@ -1904,7 +1916,7 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     var _this = this;
 
-    axios__WEBPACK_IMPORTED_MODULE_0___default().get('/api/register').then(function (res) {
+    axios__WEBPACK_IMPORTED_MODULE_0___default().get("/api/register").then(function (res) {
       _this.counts = res.data;
     });
   }
@@ -1929,7 +1941,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".admin__panel-wrapper[data-v-55568bd4] {\n  display: flex;\n  justify-content: space-between;\n}\n.items__section[data-v-55568bd4] {\n  display: flex;\n  justify-content: space-between;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".admin__panel-wrapper[data-v-55568bd4] {\n  display: flex;\n  justify-content: space-between;\n}\n.items__section[data-v-55568bd4] {\n  display: flex;\n  justify-content: space-between;\n  flex-wrap: wrap;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -2271,27 +2283,37 @@ var render = function() {
         ? _c("div", { staticClass: "items__section" }, [
             _c(
               "div",
-              { staticClass: "card", staticStyle: { width: "15rem" } },
+              { staticClass: "card mb-3", staticStyle: { width: "15rem" } },
               [
-                _c("div", { staticClass: "card-body" }, [
-                  _c("h5", { staticClass: "card-title" }, [_vm._v("Services")]),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "card-text" }, [
-                    _vm._v("All Services: " + _vm._s(_vm.counts.services))
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "a",
-                    { staticClass: "btn btn-primary", attrs: { href: "#" } },
-                    [_vm._v("Go to all Services")]
-                  )
-                ])
+                _c(
+                  "div",
+                  { staticClass: "card-body" },
+                  [
+                    _c("h5", { staticClass: "card-title" }, [
+                      _vm._v("Services")
+                    ]),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "card-text" }, [
+                      _vm._v("All Services: " + _vm._s(_vm.counts.services))
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "btn btn-primary",
+                        attrs: { to: { name: "service-list" } }
+                      },
+                      [_vm._v("Go to all Services")]
+                    )
+                  ],
+                  1
+                )
               ]
             ),
             _vm._v(" "),
             _c(
               "div",
-              { staticClass: "card", staticStyle: { width: "15rem" } },
+              { staticClass: "card mb-3", staticStyle: { width: "15rem" } },
               [
                 _c(
                   "div",
@@ -2309,9 +2331,9 @@ var render = function() {
                       "router-link",
                       {
                         staticClass: "btn btn-primary",
-                        attrs: { to: "/services" }
+                        attrs: { to: { name: "client-list" } }
                       },
-                      [_vm._v("Go somewhere")]
+                      [_vm._v("Go All Cilents")]
                     )
                   ],
                   1
@@ -2321,41 +2343,89 @@ var render = function() {
             _vm._v(" "),
             _c(
               "div",
-              { staticClass: "card", staticStyle: { width: "15rem" } },
+              { staticClass: "card mb-3", staticStyle: { width: "15rem" } },
               [
-                _c("div", { staticClass: "card-body" }, [
-                  _c("h5", { staticClass: "card-title" }, [_vm._v("Info")]),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "card-text" }, [
-                    _vm._v("Info: " + _vm._s(_vm.counts.info))
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "a",
-                    { staticClass: "btn btn-primary", attrs: { href: "#" } },
-                    [_vm._v("Go somewhere")]
-                  )
-                ])
+                _c(
+                  "div",
+                  { staticClass: "card-body" },
+                  [
+                    _c("h5", { staticClass: "card-title" }, [_vm._v("Info")]),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "card-text" }, [
+                      _vm._v("Info: " + _vm._s(_vm.counts.info))
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "btn btn-primary",
+                        attrs: { to: { name: "info-list" } }
+                      },
+                      [_vm._v("Go All Info")]
+                    )
+                  ],
+                  1
+                )
               ]
             ),
             _vm._v(" "),
             _c(
               "div",
-              { staticClass: "card", staticStyle: { width: "15rem" } },
+              { staticClass: "card mb-3", staticStyle: { width: "15rem" } },
               [
-                _c("div", { staticClass: "card-body" }, [
-                  _c("h5", { staticClass: "card-title" }, [_vm._v("Projects")]),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "card-text" }, [
-                    _vm._v("All Projects: " + _vm._s(_vm.counts.projects))
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "a",
-                    { staticClass: "btn btn-primary", attrs: { href: "#" } },
-                    [_vm._v("Go somewhere")]
-                  )
-                ])
+                _c(
+                  "div",
+                  { staticClass: "card-body" },
+                  [
+                    _c("h5", { staticClass: "card-title" }, [
+                      _vm._v("Projects")
+                    ]),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "card-text" }, [
+                      _vm._v("All Projects: " + _vm._s(_vm.counts.projects))
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "btn btn-primary",
+                        attrs: { to: { name: "project-list" } }
+                      },
+                      [_vm._v("Go All Projects")]
+                    )
+                  ],
+                  1
+                )
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "card mb-3", staticStyle: { width: "15rem" } },
+              [
+                _c(
+                  "div",
+                  { staticClass: "card-body" },
+                  [
+                    _c("h5", { staticClass: "card-title" }, [_vm._v("About")]),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "card-text" }, [
+                      _vm._v(
+                        "About Us Items count: " + _vm._s(_vm.counts.projects)
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "btn btn-primary",
+                        attrs: { to: { name: "about-list" } }
+                      },
+                      [_vm._v("Go About Us")]
+                    )
+                  ],
+                  1
+                )
               ]
             )
           ])

@@ -81,10 +81,10 @@ class RegistrationController extends Controller
 
         if (!Auth::attempt($request->only('email', 'password'))) {
             return response()->json(['status' => 'error', 'errors' => 'something goes wrong'], 422);
-
         }
+        $user = User::find(1);
 
-        return response()->json(['status' => 'success', 'message' => 'you are loged in'], 200);
+        return response()->json(['user' => $user, 'status' => 'success', 'message' => 'you are loged in'], 200);
 }
 
     /**

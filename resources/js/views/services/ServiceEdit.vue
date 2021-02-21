@@ -60,7 +60,6 @@ export default {
         });
     },
     editServiceHandler() {
-      console.log(this.service);
       axios
         .put(`/api/services/${this.service.id}`, this.service)
         .then((res) => {

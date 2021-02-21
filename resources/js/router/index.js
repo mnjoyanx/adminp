@@ -5,7 +5,7 @@ import VueRouter from 'vue-router'
 Vue.use(VueRouter)
 
 
-export default new VueRouter({
+const router = new VueRouter({
     mode: 'history',
     routes: [
         {
@@ -28,7 +28,11 @@ export default new VueRouter({
         {
             path: '/admin-panel',
             component: () => import('../views/AdminPanel'),
-            name: 'admin-panel'
+            name: 'admin-panel',
+            meta: {
+                layout: 'side-bar',
+                auth: true
+            }
         },
         {
             path: '/services',
@@ -36,7 +40,6 @@ export default new VueRouter({
 
             redirect: {
                 name: 'service-list',
-
             },
 
 
@@ -46,7 +49,8 @@ export default new VueRouter({
                     component: () => import('../views/services/ServiceList.vue'),
                     name: 'service-list',
                     meta: {
-                        layout: 'side-bar'
+                        layout: 'side-bar',
+                        auth: true
                     },
 
                 },
@@ -55,7 +59,8 @@ export default new VueRouter({
                     component: () => import('../views/services/ServiceAdd.vue'),
                     name: 'service-add',
                     meta: {
-                        layout: 'side-bar'
+                        layout: 'side-bar',
+                        auth: true
                     },
 
                 },
@@ -64,7 +69,8 @@ export default new VueRouter({
                     component: () => import('../views/services/ServiceEdit.vue'),
                     name: 'service-edit',
                     meta: {
-                        layout: 'side-bar'
+                        layout: 'side-bar',
+                        auth: true
                     },
 
                 }
@@ -83,7 +89,8 @@ export default new VueRouter({
                     component: () => import('../views/clients/ClientList'),
                     name: 'client-list',
                     meta: {
-                        layout: 'side-bar'
+                        layout: 'side-bar',
+                        auth: true
                     },
                 },
                 {
@@ -91,7 +98,8 @@ export default new VueRouter({
                     component: () => import('../views/clients/ClientAdd'),
                     name: 'client-add',
                     meta: {
-                        layout: 'side-bar'
+                        layout: 'side-bar',
+                        auth: true
                     },
                 },
                 {
@@ -99,7 +107,8 @@ export default new VueRouter({
                     component: () => import('../views/clients/ClientEdit'),
                     name: 'client-edit',
                     meta: {
-                        layout: 'side-bar'
+                        layout: 'side-bar',
+                        auth: true
                     },
                 }
             ]
@@ -117,7 +126,8 @@ export default new VueRouter({
                     component: () => import('../views/info/InfoList'),
                     name: 'info-list',
                     meta: {
-                        layout: 'side-bar'
+                        layout: 'side-bar',
+                        auth: true
                     },
                 },
                 {
@@ -125,7 +135,8 @@ export default new VueRouter({
                     component: () => import('../views/info/InfoAdd'),
                     name: 'info-add',
                     meta: {
-                        layout: 'side-bar'
+                        layout: 'side-bar',
+                        auth: true
                     },
                 },
                 {
@@ -133,7 +144,8 @@ export default new VueRouter({
                     component: () => import('../views/info/InfoEdit'),
                     name: 'info-edit',
                     meta: {
-                        layout: 'side-bar'
+                        layout: 'side-bar',
+                        auth: true
                     },
                 }
             ]
@@ -151,7 +163,8 @@ export default new VueRouter({
                     component: () => import('../views/about/AboutList'),
                     name: 'about-list',
                     meta: {
-                        layout: 'side-bar'
+                        layout: 'side-bar',
+                        auth: true
                     },
                 },
                 {
@@ -167,7 +180,8 @@ export default new VueRouter({
                     component: () => import('../views/about/AboutEdit'),
                     name: 'about-edit',
                     meta: {
-                        layout: 'side-bar'
+                        layout: 'side-bar',
+                        auth: true
                     },
                 }
             ]
@@ -185,7 +199,8 @@ export default new VueRouter({
                     component: () => import('../views/projects/ProjectList'),
                     name: 'project-list',
                     meta: {
-                        layout: 'side-bar'
+                        layout: 'side-bar',
+                        auth: true
                     },
                 },
                 {
@@ -193,7 +208,8 @@ export default new VueRouter({
                     component: () => import('../views/projects/ProjectAdd'),
                     name: 'project-add',
                     meta: {
-                        layout: 'side-bar'
+                        layout: 'side-bar',
+                        auth: true
                     },
                 },
                 {
@@ -201,10 +217,24 @@ export default new VueRouter({
                     component: () => import('../views/projects/ProjectEdit'),
                     name: 'project-edit',
                     meta: {
-                        layout: 'side-bar'
+                        layout: 'side-bar',
+                        auth: true
                     },
                 }
             ]
         }
     ]
 })
+
+const local = localStorage.getItem('auth')
+
+router.beforeEach((to, from, next) => {
+    const auth = to.matched.some(rec => rec.meta.auth)
+    if(auth && !local) {
+        next({name: 'sign-in'})
+    } else {
+        next()
+    }
+})
+
+export default router
