@@ -8,7 +8,7 @@
       <div class="form-group">
         <label for="img">Img Src</label>
         <input type="text" class="form-control" id="img" v-model="client.img" />
-        <button class="btn btn-primary">Edit</button>
+        <button class="btn btn-outline-primary">Edit</button>
       </div>
     </form>
     </div>

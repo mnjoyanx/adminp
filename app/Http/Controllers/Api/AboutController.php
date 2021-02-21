@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\About;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class AboutController extends Controller
 {
@@ -36,7 +37,22 @@ class AboutController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $v = Validator::make($request->all(), [
+            'img' => ['required'],
+            'body' => ['required']
+        ]);
+
+        if($v->fails())
+        {
+            return response()->json(['errors' => $v->errors()], 422);
+        }
+
+        $about = new About();
+        $about->img = $request->img;
+        $about->body = $request->body;
+        $about->save();
+
+        return response()->json(['messages' => 'about added']);
     }
 
     /**
@@ -47,7 +63,7 @@ class AboutController extends Controller
      */
     public function show($id)
     {
-        //
+        return About::find($id);
     }
 
     /**
@@ -70,8 +86,23 @@ class AboutController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
-    }
+        $v = Validator::make($request->all(), [
+            'img' => ['required'],
+            'body' => ['required']
+        ]);
+
+        if($v->fails())
+        {
+            return response()->json(['errors' => $v->errors()], 422);
+        }
+
+        $about = About::find($id);
+        $about->img = $request->img;
+        $about->body = $request->body;
+        $about->save();
+
+        return response()->json(['messages' => 'about edited'], 200);
+        }
 
     /**
      * Remove the specified resource from storage.
@@ -81,6 +112,6 @@ class AboutController extends Controller
      */
     public function destroy($id)
     {
-        //
+        About::find($id)->delete();
     }
 }

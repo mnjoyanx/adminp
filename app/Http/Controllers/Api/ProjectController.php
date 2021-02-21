@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\Projects;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class ProjectController extends Controller
 {
@@ -36,7 +37,21 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $v = Validator::make($request->all(), [
+            'img' => ['required']
+        ]);
+
+        if($v->fails())
+        {
+            return response()->json(['erros' => $v->errors()], 422);
+        }
+
+        $project = new Projects();
+        $project->img = $request->img;
+        $project->save();
+
+        return response()->json(['messages' => 'project added']);
+
     }
 
     /**
@@ -47,7 +62,8 @@ class ProjectController extends Controller
      */
     public function show($id)
     {
-        //
+       return Projects::find($id);
+
     }
 
     /**
@@ -70,7 +86,21 @@ class ProjectController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $project = Projects::find($id);
+
+        $v = Validator::make($request->all(), [
+            'img' => ['required']
+        ]);
+
+        if($v->fails())
+        {
+            return response()->json(['errors' => $v->errors()], 422);
+        }
+
+        $project->img = $request->img;
+        $project->save();
+
+        return response()->json(['messages' => 'project edited']);
     }
 
     /**
@@ -81,6 +111,6 @@ class ProjectController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Projects::find($id)->delete();
     }
 }
