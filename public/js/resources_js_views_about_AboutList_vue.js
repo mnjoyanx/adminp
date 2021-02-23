@@ -2322,7 +2322,9 @@ var render = function() {
             "tbody",
             _vm._l(_vm.data, function(item) {
               return _c("tr", { key: item.id }, [
-                _c("th", { attrs: { scope: "row" } }, [_vm._v("id")]),
+                _c("th", { attrs: { scope: "row" } }, [
+                  _vm._v(_vm._s(item.id))
+                ]),
                 _vm._v(" "),
                 _c("th", [
                   _c("p", { staticClass: "ellipsis" }, [

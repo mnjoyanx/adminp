@@ -1915,6 +1915,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "services",
@@ -1947,7 +1950,7 @@ __webpack_require__.r(__webpack_exports__);
     editPath: function editPath(id) {
       console.log(id);
       this.$router.push({
-        name: 'service-edit',
+        name: "service-edit",
         params: {
           id: id
         }

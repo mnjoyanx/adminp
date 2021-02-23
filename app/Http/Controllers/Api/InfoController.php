@@ -16,7 +16,7 @@ class InfoController extends Controller
      */
     public function index()
     {
-        return Info::all();
+        return Info::orderBy('id')->get();
     }
 
     /**

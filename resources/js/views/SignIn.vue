@@ -45,7 +45,7 @@ import axios from 'axios'
                 axios.post('/api/login', this.formGroup)
                     .then(res => {
                         localStorage.setItem('auth', res.data.user.id)
-                        this.$router.push({name: 'admin-panel'})
+                        this.$router.replace({name: 'admin-panel'})
                     })
                     .catch(err => {
                         console.log(err);

@@ -42,7 +42,10 @@
               </svg>
             </span>
 
-            <span class="btn btn-outline-primary ml-2" @click="editPath(item.id)">
+            <span
+              class="btn btn-outline-primary ml-2"
+              @click="editPath(item.id)"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
@@ -101,9 +104,9 @@ export default {
         });
     },
     editPath(id) {
-        console.log(id)
-        this.$router.push({name: 'service-edit', params: {id}})
-    }
+      console.log(id);
+      this.$router.push({ name: "service-edit", params: { id } });
+    },
   },
   mounted() {
     this.getAllServices();

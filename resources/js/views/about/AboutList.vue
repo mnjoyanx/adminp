@@ -15,7 +15,7 @@
       </thead>
       <tbody>
         <tr v-for="item in data" :key="item.id">
-          <th scope="row">id</th>
+          <th scope="row">{{ item.id}}</th>
           <th>
             <p class="ellipsis">{{ item.img }}</p>
           </th>

@@ -185,10 +185,10 @@ __webpack_require__.r(__webpack_exports__);
   name: "sidebar",
   methods: {
     goOut: function goOut() {
-      localStorage.removeItem('auth');
       this.$router.push({
         name: 'sign-in'
       });
+      localStorage.removeItem('auth');
     }
   }
 });
@@ -237,246 +237,247 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
-/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
+/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
 
 
-vue__WEBPACK_IMPORTED_MODULE_0__.default.use(vue_router__WEBPACK_IMPORTED_MODULE_1__.default);
-var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__.default({
-  mode: 'history',
+var isNavigationFailure = vue_router__WEBPACK_IMPORTED_MODULE_0__.default.isNavigationFailure,
+    NavigationFailureType = vue_router__WEBPACK_IMPORTED_MODULE_0__.default.NavigationFailureType;
+vue__WEBPACK_IMPORTED_MODULE_1__.default.use(vue_router__WEBPACK_IMPORTED_MODULE_0__.default);
+var router = new vue_router__WEBPACK_IMPORTED_MODULE_0__.default({
+  mode: "history",
   routes: [{
-    path: '/sign-up',
+    path: "/sign-up",
     component: function component() {
       return __webpack_require__.e(/*! import() */ "resources_js_views_SignUp_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../views/SignUp.vue */ "./resources/js/views/SignUp.vue"));
     },
-    name: 'sign-up',
+    name: "sign-up",
     meta: {
-      layout: 'auth'
+      layout: "auth"
     }
   }, {
-    path: '/',
+    path: "/",
     component: function component() {
       return __webpack_require__.e(/*! import() */ "resources_js_views_SignIn_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../views/SignIn.vue */ "./resources/js/views/SignIn.vue"));
     },
-    name: 'sign-in',
+    name: "sign-in",
     meta: {
-      layout: 'auth'
+      layout: "auth",
+      visitor: true
     }
   }, {
-    path: '/admin-panel',
+    path: "/admin-panel",
     component: function component() {
       return __webpack_require__.e(/*! import() */ "resources_js_views_AdminPanel_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../views/AdminPanel */ "./resources/js/views/AdminPanel.vue"));
     },
-    name: 'admin-panel',
+    name: "admin-panel",
     meta: {
-      layout: 'side-bar',
+      layout: "side-bar",
       auth: true
     }
   }, {
-    path: '/services',
+    path: "/services",
     component: function component() {
       return __webpack_require__.e(/*! import() */ "resources_js_views_services_Index_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../views/services/Index.vue */ "./resources/js/views/services/Index.vue"));
     },
     redirect: {
-      name: 'service-list'
+      name: "service-list"
     },
     children: [{
-      path: '/services-list',
+      path: "/services-list",
       component: function component() {
         return __webpack_require__.e(/*! import() */ "resources_js_views_services_ServiceList_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../views/services/ServiceList.vue */ "./resources/js/views/services/ServiceList.vue"));
       },
-      name: 'service-list',
+      name: "service-list",
       meta: {
-        layout: 'side-bar',
+        layout: "side-bar",
         auth: true
       }
     }, {
-      path: '/services-add',
+      path: "/services-add",
       component: function component() {
         return __webpack_require__.e(/*! import() */ "resources_js_views_services_ServiceAdd_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../views/services/ServiceAdd.vue */ "./resources/js/views/services/ServiceAdd.vue"));
       },
-      name: 'service-add',
+      name: "service-add",
       meta: {
-        layout: 'side-bar',
+        layout: "side-bar",
         auth: true
       }
     }, {
-      path: '/services-edit/:id',
+      path: "/services-edit/:id",
       component: function component() {
         return __webpack_require__.e(/*! import() */ "resources_js_views_services_ServiceEdit_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../views/services/ServiceEdit.vue */ "./resources/js/views/services/ServiceEdit.vue"));
       },
-      name: 'service-edit',
+      name: "service-edit",
       meta: {
-        layout: 'side-bar',
+        layout: "side-bar",
         auth: true
       }
     }]
   }, {
-    path: '/clients',
+    path: "/clients",
     component: function component() {
       return __webpack_require__.e(/*! import() */ "resources_js_views_clients_Index_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../views/clients/Index.vue */ "./resources/js/views/clients/Index.vue"));
     },
-    name: 'clients',
+    name: "clients",
     redirect: {
-      name: 'client-list'
+      name: "client-list"
     },
     children: [{
-      path: '/client-list',
+      path: "/client-list",
       component: function component() {
         return __webpack_require__.e(/*! import() */ "resources_js_views_clients_ClientList_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../views/clients/ClientList */ "./resources/js/views/clients/ClientList.vue"));
       },
-      name: 'client-list',
+      name: "client-list",
       meta: {
-        layout: 'side-bar',
+        layout: "side-bar",
         auth: true
       }
     }, {
-      path: 'add',
+      path: "add",
       component: function component() {
         return __webpack_require__.e(/*! import() */ "resources_js_views_clients_ClientAdd_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../views/clients/ClientAdd */ "./resources/js/views/clients/ClientAdd.vue"));
       },
-      name: 'client-add',
+      name: "client-add",
       meta: {
-        layout: 'side-bar',
+        layout: "side-bar",
         auth: true
       }
     }, {
-      path: 'client-edit/:id',
+      path: "client-edit/:id",
       component: function component() {
         return __webpack_require__.e(/*! import() */ "resources_js_views_clients_ClientEdit_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../views/clients/ClientEdit */ "./resources/js/views/clients/ClientEdit.vue"));
       },
-      name: 'client-edit',
+      name: "client-edit",
       meta: {
-        layout: 'side-bar',
+        layout: "side-bar",
         auth: true
       }
     }]
   }, {
-    path: '/info',
+    path: "/info",
     component: function component() {
       return __webpack_require__.e(/*! import() */ "resources_js_views_info_Index_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../views/info/Index.vue */ "./resources/js/views/info/Index.vue"));
     },
-    name: 'info',
+    name: "info",
     redirect: {
-      name: 'info-list'
+      name: "info-list"
     },
     children: [{
-      path: 'list',
+      path: "list",
       component: function component() {
         return __webpack_require__.e(/*! import() */ "resources_js_views_info_InfoList_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../views/info/InfoList */ "./resources/js/views/info/InfoList.vue"));
       },
-      name: 'info-list',
+      name: "info-list",
       meta: {
-        layout: 'side-bar',
+        layout: "side-bar",
         auth: true
       }
     }, {
-      path: 'add',
+      path: "add",
       component: function component() {
         return __webpack_require__.e(/*! import() */ "resources_js_views_info_InfoAdd_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../views/info/InfoAdd */ "./resources/js/views/info/InfoAdd.vue"));
       },
-      name: 'info-add',
+      name: "info-add",
       meta: {
-        layout: 'side-bar',
+        layout: "side-bar",
         auth: true
       }
     }, {
-      path: 'info-edit/:id',
+      path: "info-edit/:id",
       component: function component() {
         return __webpack_require__.e(/*! import() */ "resources_js_views_info_InfoEdit_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../views/info/InfoEdit */ "./resources/js/views/info/InfoEdit.vue"));
       },
-      name: 'info-edit',
+      name: "info-edit",
       meta: {
-        layout: 'side-bar',
+        layout: "side-bar",
         auth: true
       }
     }]
   }, {
-    path: '/about',
+    path: "/about",
     component: function component() {
       return __webpack_require__.e(/*! import() */ "resources_js_views_about_Index_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../views/about/Index.vue */ "./resources/js/views/about/Index.vue"));
     },
-    name: 'about',
+    name: "about",
     redirect: {
-      name: 'about-list'
+      name: "about-list"
     },
     children: [{
-      path: 'about-list',
+      path: "about-list",
       component: function component() {
         return __webpack_require__.e(/*! import() */ "resources_js_views_about_AboutList_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../views/about/AboutList */ "./resources/js/views/about/AboutList.vue"));
       },
-      name: 'about-list',
+      name: "about-list",
       meta: {
-        layout: 'side-bar',
+        layout: "side-bar",
         auth: true
       }
     }, {
-      path: 'add',
+      path: "add",
       component: function component() {
         return __webpack_require__.e(/*! import() */ "resources_js_views_about_AboutAdd_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../views/about/AboutAdd */ "./resources/js/views/about/AboutAdd.vue"));
       },
-      name: 'about-add',
+      name: "about-add",
       meta: {
-        layout: 'side-bar'
+        layout: "side-bar"
       }
     }, {
-      path: 'about-edit/:id',
+      path: "about-edit/:id",
       component: function component() {
         return __webpack_require__.e(/*! import() */ "resources_js_views_about_AboutEdit_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../views/about/AboutEdit */ "./resources/js/views/about/AboutEdit.vue"));
       },
-      name: 'about-edit',
+      name: "about-edit",
       meta: {
-        layout: 'side-bar',
+        layout: "side-bar",
         auth: true
       }
     }]
   }, {
-    path: '/projects',
+    path: "/projects",
     component: function component() {
       return __webpack_require__.e(/*! import() */ "resources_js_views_projects_Index_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../views/projects/Index.vue */ "./resources/js/views/projects/Index.vue"));
     },
-    name: 'projects',
+    name: "projects",
     redirect: {
-      name: 'project-list'
+      name: "project-list"
     },
     children: [{
-      path: 'project-list',
+      path: "project-list",
       component: function component() {
         return __webpack_require__.e(/*! import() */ "resources_js_views_projects_ProjectList_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../views/projects/ProjectList */ "./resources/js/views/projects/ProjectList.vue"));
       },
-      name: 'project-list',
+      name: "project-list",
       meta: {
-        layout: 'side-bar',
+        layout: "side-bar",
         auth: true
       }
     }, {
-      path: 'project-add',
+      path: "project-add",
       component: function component() {
         return __webpack_require__.e(/*! import() */ "resources_js_views_projects_ProjectAdd_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../views/projects/ProjectAdd */ "./resources/js/views/projects/ProjectAdd.vue"));
       },
-      name: 'project-add',
+      name: "project-add",
       meta: {
-        layout: 'side-bar',
+        layout: "side-bar",
         auth: true
       }
     }, {
-      path: 'project-edit/:id',
+      path: "project-edit/:id",
       component: function component() {
         return __webpack_require__.e(/*! import() */ "resources_js_views_projects_ProjectEdit_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../views/projects/ProjectEdit */ "./resources/js/views/projects/ProjectEdit.vue"));
       },
-      name: 'project-edit',
+      name: "project-edit",
       meta: {
-        layout: 'side-bar',
+        layout: "side-bar",
         auth: true
       }
     }]
   }]
 });
-var local = localStorage.getItem('auth');
+var local = localStorage.getItem("auth");
 router.beforeEach(function (to, from, next) {
-  var auth = to.matched.some(function (rec) {
-    return rec.meta.auth;
-  });
+  var auth = to.meta.auth;
 
   if (auth && !local) {
     next({

@@ -1894,7 +1894,7 @@ __webpack_require__.r(__webpack_exports__);
       axios__WEBPACK_IMPORTED_MODULE_0___default().post('/api/login', this.formGroup).then(function (res) {
         localStorage.setItem('auth', res.data.user.id);
 
-        _this.$router.push({
+        _this.$router.replace({
           name: 'admin-panel'
         });
       })["catch"](function (err) {

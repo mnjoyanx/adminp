@@ -134,8 +134,9 @@ export default {
   name: "sidebar",
   methods: {
       goOut() {
-          localStorage.removeItem('auth')
           this.$router.push({name: 'sign-in'})
+          localStorage.removeItem('auth')
+
       }
   }
 };
